@@ -1,0 +1,180 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.tru</groupId>
+	<artifactId>POSupplier</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<name>PO Supplier</name>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-core</artifactId>
+			<version>3.14.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-spring</artifactId>
+			<version>3.14.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-zipfile</artifactId>
+			<version>3.14.0</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-ftp</artifactId>
+			<version>3.14.0</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-csv</artifactId>
+			<version>3.14.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jdbc</artifactId>
+			<version>3.14.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-sql</artifactId>
+			<version>3.14.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-quartz</artifactId>
+			<version>3.14.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-direct</artifactId>
+			<version>3.14.0</version>
+		</dependency>
+
+
+		<!-- <dependency> <groupId>org.apache.camel</groupId> <artifactId>camel-jackson</artifactId> 
+			<version>3.14.0</version> </dependency> <dependency> <groupId>org.apache.camel</groupId> 
+			<artifactId>camel-jacksonxml</artifactId> <version>3.14.0</version> </dependency> -->
+
+
+
+
+		<!-- <dependency> <groupId>org.apache.camel</groupId> <artifactId>camel-jaxb</artifactId> 
+			<version>3.14.0</version> </dependency> -->
+
+		<!-- <dependency> <groupId>com.fasterxml.jackson.dataformat</groupId> <artifactId>jackson-dataformat-xml</artifactId> 
+			<version>2.13.0</version> </dependency> -->
+
+		<!-- <dependency> <groupId>org.apache.camel.springboot</groupId> <artifactId>camel-jackson-starter</artifactId> 
+			<version>3.7.0</version> </dependency> <dependency> <groupId>org.apache.camel.springboot</groupId> 
+			<artifactId>camel-jacksonxml-starter</artifactId> <version>3.7.0</version> 
+			</dependency> -->
+
+		<!-- <dependency> <groupId>org.json</groupId> <artifactId>json</artifactId> 
+			<version>20220320</version> </dependency> <dependency> <groupId>com.google.code.gson</groupId> 
+			<artifactId>gson</artifactId> <version>2.9.1</version> </dependency> -->
+
+
+
+		<!-- <dependency> <groupId>org.apache.camel</groupId> <artifactId>camel-xmljson</artifactId> 
+			<version>3.14.0</version> </dependency> -->
+
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-dbcp2</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>net.sf.jt400</groupId>
+			<artifactId>jt400</artifactId>
+			<version>10.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>5.3.19</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.6.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.16.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.16.0</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>5.1.4</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+						<Bundle-Version>${project.version}</Bundle-Version>
+						<Export-Package>
+							org.apache.commons.logging.api*,com.tru.IAUpload*;version=${project.version}
+						</Export-Package>
+						<Import-Package>
+							org.osgi.framework,
+							*;resolution:=optional
+						</Import-Package>
+
+					</instructions>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<maxmem>256M</maxmem>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
